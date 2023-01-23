@@ -1,0 +1,7 @@
+{
+  "name": "PMDMO-Ej2_App_cursos_IONIC+Angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
