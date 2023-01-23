@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Página Inicial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formulario</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Curso:</ion-label>
+        <ion-input placeholder="Introduzca el nombre de un curso..."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Puntos:</ion-label>
+        <ion-input placeholder="Introduzca los puntos del curso..."></ion-input>
+      </ion-item>
+      <div class="btn_content">
+        <ion-fab-button slot="end">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-title class="title">Listado de los cursos:</ion-title>
+  <div class="courses_content"></div>
+</ion-content>
