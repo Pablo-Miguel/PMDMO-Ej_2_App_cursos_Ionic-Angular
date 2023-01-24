@@ -1,0 +1,34 @@
+<form [formGroup]="frmCursos" novalidate>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formulario</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Curso:</ion-label>
+        <ion-input formControlName="curso" placeholder="Introduzca el nombre de un curso..."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Puntos:</ion-label>
+        <ion-input formControlName="puntos" placeholder="Introduzca los puntos del curso [1 - 10]..."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img alt="img" [src]="src" #img/>
+        </ion-thumbnail>
+        <ion-button size="default" shape="round" (click)="takePicture(true)">
+          <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="default" shape="round" (click)="takePicture(false)">
+          <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <div class="btn_content">
+        <ion-fab-button slot="end" (click)="addCurso()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</form>

@@ -1,0 +1,9 @@
+<ion-item>
+  <ion-thumbnail slot="start">
+    <img alt="img" [src]="curso.getSrc()"/>
+  </ion-thumbnail>
+  <ion-label>{{curso.getCurso()}}</ion-label>
+  <ion-button size="default" shape="round" [routerLink]="['/detalles', curso.getId()]">
+    <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+  </ion-button>
+</ion-item>
