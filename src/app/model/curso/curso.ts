@@ -1,10 +1,8 @@
 import { v4 as uuid } from 'uuid';
 
 export class Curso {
-    id: String;
-
-    constructor(private curso: String, private puntos: Number, private src: String){
-        this.id = uuid();
+    constructor(private id: String, private curso: String, private puntos: Number, private src: String){
+        if(!id) this.id = uuid();
     }
     
     getId(): String {

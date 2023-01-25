@@ -12,19 +12,18 @@ export class ServicioService {
 
   constructor(private storage: StorageService) {
     
-    this.obtenerDataJson();
-    
-    this.cursos$ = new BehaviorSubject<Curso[]>(this.cursos);
-  }
-
-  private async obtenerDataJson(){
-    await this.storage.readStorage()
+    this.storage.readStorage()
     .then(parsedJSON => {
-      this.cursos = parsedJSON;
+      this.cursos = [];
+      parsedJSON.forEach(elem => {
+        this.cursos.push(new Curso(elem.id, elem.curso, elem.puntos, elem.src));
+      });
     })
     .catch(err => {
       this.cursos = [];
     });
+
+    this.cursos$ = new BehaviorSubject<Curso[]>(this.cursos);
   }
 
   getCursos$(): Observable<Curso[]> {
@@ -36,7 +35,7 @@ export class ServicioService {
   }
 
   anyadirCursoPrimero(curso: String, puntos: Number, src: String) {
-    this.cursos.unshift(new Curso(curso, puntos, src));
+    this.cursos.unshift(new Curso("", curso, puntos, src));
     this.storage.writeStorage(JSON.stringify(this.cursos));
     this.cursos$.next([...this.cursos]);
   }
