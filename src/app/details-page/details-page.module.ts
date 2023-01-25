@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DetailsPagePageRoutingModule } from './details-page-routing.module';
 
 import { DetailsPagePage } from './details-page.page';
+import { CardItemComponent } from './components/card-item/card-item.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { DetailsPagePage } from './details-page.page';
     IonicModule,
     DetailsPagePageRoutingModule
   ],
-  declarations: [DetailsPagePage]
+  declarations: [
+    DetailsPagePage,
+    CardItemComponent
+  ]
 })
 export class DetailsPagePageModule {}
