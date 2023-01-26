@@ -12,7 +12,7 @@ export class DetailsPagePage implements OnInit {
 
   curso!: Curso;
 
-  constructor(public servicio: ServicioService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(public servicio: ServicioService, private activatedRoute: ActivatedRoute) {
 
   }
 
@@ -20,11 +20,6 @@ export class DetailsPagePage implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.curso = this.servicio.getCurso(params['id']);
     });
-  }
-
-  deleteCurso() {
-    this.servicio.eliminarCurso(this.curso);
-    this.router.navigate(['']);
   }
 
 }

@@ -4,7 +4,7 @@
     <ion-card-title>Curso: {{curso.getCurso()}}</ion-card-title>
     <ion-card-subtitle>Puntos: {{curso.getPuntos()}}</ion-card-subtitle>
     <div class="btn_delete">
-      <ion-button size="default" shape="round" (click)="servicio.eliminarCurso(curso)">
+      <ion-button size="default" shape="round" (click)="deleteCurso()">
         <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
       </ion-button>
     </div>

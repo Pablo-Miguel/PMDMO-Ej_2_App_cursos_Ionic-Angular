@@ -12,19 +12,22 @@ export class ServicioService {
 
   constructor(private storage: StorageService) {
     
+    this.cursos$ = new BehaviorSubject<Curso[]>([]);
+
     this.storage.readStorage()
     .then(parsedJSON => {
       this.cursos = [];
       parsedJSON.forEach(elem => {
         this.cursos.push(new Curso(elem.id, elem.curso, elem.puntos, elem.src));
       });
+      this.cursos$.next([...this.cursos]);
     })
     .catch(err => {
       this.cursos = [];
     });
-
-    this.cursos$ = new BehaviorSubject<Curso[]>(this.cursos);
   }
+
+  
 
   getCursos$(): Observable<Curso[]> {
     return this.cursos$.asObservable();
