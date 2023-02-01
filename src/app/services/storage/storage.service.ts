@@ -20,7 +20,7 @@ export class StorageService {
     await Filesystem.writeFile({
       path: 'storage/data.json',
       data: json,
-      directory: Directory.Documents,
+      directory: Directory.Data,
       encoding: Encoding.UTF8,
     });
   };
@@ -28,7 +28,7 @@ export class StorageService {
   async readStorage(): Promise<CursoJson[]> {
     const contents = await Filesystem.readFile({
       path: 'storage/data.json',
-      directory: Directory.Documents,
+      directory: Directory.Data,
       encoding: Encoding.UTF8,
     });
 
