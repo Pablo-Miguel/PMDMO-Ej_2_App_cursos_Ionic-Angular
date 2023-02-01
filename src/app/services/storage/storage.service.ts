@@ -16,7 +16,8 @@ export class StorageService {
 
   constructor() { }
 
-  async writeStorage(json: string) {
+  async writeStorage(cursos: Curso[]) {
+    let json = JSON.stringify(cursos);
     await Filesystem.writeFile({
       path: 'storage/data.json',
       data: json,

@@ -27,8 +27,6 @@ export class ServicioService {
     });
   }
 
-  
-
   getCursos$(): Observable<Curso[]> {
     return this.cursos$.asObservable();
   }
@@ -39,13 +37,13 @@ export class ServicioService {
 
   anyadirCursoPrimero(curso: String, puntos: Number, src: String) {
     this.cursos.unshift(new Curso("", curso, puntos, src));
-    this.storage.writeStorage(JSON.stringify(this.cursos));
+    this.storage.writeStorage(this.cursos);
     this.cursos$.next([...this.cursos]);
   }
 
   eliminarCurso(curso: Curso) {
     this.cursos = this.cursos.filter(x => x.getId() != curso.getId());
-    this.storage.writeStorage(JSON.stringify(this.cursos));
+    this.storage.writeStorage(this.cursos);
     this.cursos$.next([...this.cursos]);
   }
 }
